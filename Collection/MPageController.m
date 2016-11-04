@@ -45,7 +45,8 @@ static NSString *mCollectionCellID = @"MPageController_CollectionViewCell";
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         [layout setMinimumLineSpacing:0];
         [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-        
+        layout.itemSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height);
+
         _collectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:layout];
         [_collectionView setBackgroundColor:[UIColor whiteColor]];
         [_collectionView setShowsHorizontalScrollIndicator:NO];
@@ -79,12 +80,6 @@ static NSString *mCollectionCellID = @"MPageController_CollectionViewCell";
     [self addChildViewController:controller];
     
     return cell;
-}
-#pragma mark UICollectionViewDelegateFlowLayout
-/*设置单元格大小*/
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
 }
 #pragma mark UIScrollView delegate
 /*开始滑动*/
